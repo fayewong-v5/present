@@ -27,10 +27,8 @@ jobs:
       run: echo Hello, world!
 
     # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    - name: GITHUB envs
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
         echo "GITHUB_SHA is ${GITHUB_SHA}"
         echo "GITHUB_REF is ${GITHUB_REF}"
         echo "GITHUB_EVENT_NAME is ${GITHUB_EVENT_NAME}"
@@ -41,6 +39,17 @@ jobs:
         echo "GITHUB_RUN_ID is ${GITHUB_RUN_ID}"
         echo "GITHUB_RUN_NUMBER is ${GITHUB_RUN_NUMBER}"
         echo "GITHUB_WORKFLOW is ${GITHUB_WORKFLOW}"
+        echo "GITHUB_WORKSPACE is ${GITHUB_WORKSPACE}"
+      
+    - name: webhook vars
+      run: |
+        cat ${GITHUB_EVENT_PATH}
+        
+    - name: context - github
+      run: |
+        echo "github is ${{github}}"
+        echo "github.event is ${{github.event}}"
+        echo "github.workflow is ${{github.workflow}}"
 
   test:
     runs-on: ubuntu-latest
