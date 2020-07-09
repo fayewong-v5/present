@@ -50,6 +50,13 @@ jobs:
         echo "github is ${{github}}"
         echo "github.event is ${{github.event}}"
         echo "github.workflow is ${{github.workflow}}"
+        
+    - name: context - job
+      run: |
+        echo "job.status is ${{job.status}}"
+        echo "job.container.id is ${{job.container.id}}"
+        echo "job.container.network is ${{job.container.network}}"
+
 
   test:
     runs-on: ubuntu-latest
