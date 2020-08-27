@@ -40,6 +40,7 @@ jobs:
         echo "GITHUB_RUN_NUMBER is ${GITHUB_RUN_NUMBER}"
         echo "GITHUB_WORKFLOW is ${GITHUB_WORKFLOW}"
         echo "GITHUB_WORKSPACE is ${GITHUB_WORKSPACE}"
+        echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
       
     - name: webhook vars
       run: |
