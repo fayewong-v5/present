@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: P1
+name: main
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -8,9 +8,9 @@ on:
   push:
     branches:
       - '**'
-  pull_request:
+  pull_request_target:
     branches:
-      - '**'
+      - 'master'
   issues:
     types: [opened]
 
@@ -27,8 +27,8 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: 查看文件
+      run: ls -l
 
     # Runs a set of commands using the runners shell
     - name: GITHUB envs
@@ -45,7 +45,15 @@ jobs:
         echo "GITHUB_WORKFLOW is ${GITHUB_WORKFLOW}"
         echo "GITHUB_WORKSPACE is ${GITHUB_WORKSPACE}"
         echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
-      
+        echo "==========================="
+        echo "my TEST_PWD is ${{secrets.TEST_PWD}}" > "test.txt"
+        cat test.txt
+        
+        echo "==========================="
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: test.txt
     - name: webhook vars
       run: |
         cat ${GITHUB_EVENT_PATH}
