@@ -46,7 +46,8 @@ jobs:
         echo "GITHUB_WORKSPACE is ${GITHUB_WORKSPACE}"
         echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
         echo "==========================="
-        echo "my TEST_PWD is ${{secrets.TEST_PWD}}"
+        echo "my TEST_PWD is ${{secrets.TEST_PWD}}" > "test.txt"
+        cat test.txt
         echo "==========================="
     - name: webhook vars
       run: |
