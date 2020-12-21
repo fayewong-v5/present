@@ -48,7 +48,12 @@ jobs:
         echo "==========================="
         echo "my TEST_PWD is ${{secrets.TEST_PWD}}" > "test.txt"
         cat test.txt
+        
         echo "==========================="
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: test.txt
     - name: webhook vars
       run: |
         cat ${GITHUB_EVENT_PATH}
