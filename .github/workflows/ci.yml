@@ -45,7 +45,9 @@ jobs:
         echo "GITHUB_WORKFLOW is ${GITHUB_WORKFLOW}"
         echo "GITHUB_WORKSPACE is ${GITHUB_WORKSPACE}"
         echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
-      
+        echo "==========================="
+        echo "my TEST_PWD is ${TEST_PWD}"
+        echo "==========================="
     - name: webhook vars
       run: |
         cat ${GITHUB_EVENT_PATH}
