@@ -10,7 +10,7 @@ on:
       - '**'
   pull_request_target:
     branches:
-      - '**'
+      - 'master'
   issues:
     types: [opened]
 
