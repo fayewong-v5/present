@@ -43,10 +43,10 @@ jobs:
       - name: Run a multi-line script
         run: |
           if [ ${{ matrix.cpu }} == "amd64" ];then
-              echo "::set-output name=targetImageTag::v1.0.0-${{ ci.sha_short }}-${{ matrix.cpu }}"
+              echo "::set-output name=targetImageTag::v1.0.0-${{ github.sha }}-${{ matrix.cpu }}"
               echo "::set-output name=dockerFilePath::./build/Dockerfile.${{ matrix.service }}.${{ matrix.cpu }}"
           else
-              echo "::set-output name=targetImageTag::v1.0.0-${{ ci.sha_short }}"
+              echo "::set-output name=targetImageTag::v1.0.0-${{ github.sha }}"
               echo "::set-output name=dockerFilePath::./build/Dockerfile.${{ matrix.service }}-ci.${{ matrix.cpu }}"
           fi
         id: prepare
