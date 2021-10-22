@@ -23,10 +23,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          echo ${{ github.event_name }}
-          echo ${{ github.event_path }}
-          echo ${{ github.actor }}
-          echo ${{ github.ref }}
-          echo ${{ github.repository }}
-          echo ${{ github.repository_owner }}
-          echo ${{ github.sha }}
+          echo  github.event_name is ${{ github.event_name }}
+          echo  github.event_path is ${{ github.event_path }}
+          echo  github.actor is ${{ github.actor }}
+          echo  github.ref is ${{ github.ref }}
+          echo  github.repository is ${{ github.repository }}
+          echo  github.repository_owner is ${{ github.repository_owner }}
+          echo  github.sha is ${{ github.sha }}
