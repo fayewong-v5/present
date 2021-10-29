@@ -19,7 +19,10 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     steps:
+      - id: output_data
       - run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+    outputs:
+        matrix: ${{ steps.output_data.outputs.matrix }}
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
