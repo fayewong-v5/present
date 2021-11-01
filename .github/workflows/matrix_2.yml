@@ -32,8 +32,6 @@ jobs:
         e: [e1, e2, e3]
         f: [f1, f2, f3]
         g: [g1, g2, g3]
-        h: [h1, h2, h3]
-        i: [i1, i2, i3]
         include:
         - a: a1
           c: c1
