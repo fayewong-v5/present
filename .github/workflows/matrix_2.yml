@@ -1,4 +1,4 @@
-name: use matrix-3
+name: use matrix-2
 
 # Controls when the workflow will run
 on:
@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix: 
         a: [a1, a2, a3]
-        b: [b1, b2]
+        b: [b1, b2, b3]
         include:
         - a: a1
           c: c1
