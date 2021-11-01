@@ -27,16 +27,11 @@ jobs:
     needs: prepare
     strategy:
       matrix: 
-        a: [a1, a2, a3]
-        b: [b1, b2, b3]
+        a: [a1, a2]
+        b: [b1, b2]
         include:
-        - a: a1
+        - d: d1
           c: c1
-        - a: a1
-          b: b1
-          d: d1
-        - a: a4
-          b: b3
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
