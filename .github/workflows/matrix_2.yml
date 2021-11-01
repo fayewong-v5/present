@@ -29,14 +29,17 @@ jobs:
       matrix: 
         a: [a1, a2, a3]
         b: [b1, b2, b3]
+        e: [e1, e2, e3]
+        f: [f1, f2, f3]
+        g: [g1, g2, g3]
+        h: [h1, h2, h3]
+        i: [i1, i2, i3]
         include:
         - a: a1
           c: c1
         - a: a1
           b: b1
           d: d1
-        - a: a1
-          b: b3
         - a: a4
           b: b3
     # Steps represent a sequence of tasks that will be executed as part of the job
