@@ -29,9 +29,6 @@ jobs:
       matrix: 
         a: [a1, a2, a3]
         b: [b1, b2, b3]
-        e: [e1, e2, e3]
-        f: [f1, f2, f3]
-        g: [g1, g2, g3]
         include:
         - a: a1
           c: c1
