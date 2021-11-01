@@ -1,0 +1,53 @@
+name: use matrix-3
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - id: output_data
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+    outputs:
+        matrix: ${{ steps.output_data.outputs.matrix }}
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    needs: prepare
+    strategy:
+      matrix: 
+        a: [a1, a2, a3]
+        b: [b1, b2]
+        include:
+        - a: a1
+          c: c1
+        - a: a1
+          b: b1
+          d: d1
+        - a: a1
+          b: b3
+        - a: a4
+          b: b3
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      #- uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: |
+            echo a is ${{ matrix.a }}
+            echo b is ${{ matrix.b }}
+            echo c is ${{ matrix.c }}
+            echo d is ${{ matrix.d }}
