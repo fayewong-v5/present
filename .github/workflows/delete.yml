@@ -1,0 +1,17 @@
+on: delete
+
+steps:
+- run: |
+    echo github.action is ${{ github.action }}
+    echo github.actor is ${{ github.actor }}
+    echo github.base_ref is ${{ github.base_ref }}
+    echo github.event_name is ${{ github.event_name }}
+    echo github.head_ref is ${{ github.head_ref }}
+    echo github.ref is ${{ github.ref }}
+    echo github.ref_name is ${{ github.ref_name }}
+    echo github.ref_protected is ${{ github.ref_protected }} 
+    echo github.ref_type is ${{ github.ref_type }}
+    echo github.repository is ${{ github.repository }}
+    echo github.repository_owner is ${{ github.repository_owner }}
+    echo github.sha is ${{ github.sha }}
+    echo github.workflow is ${{ github.workflow }}
