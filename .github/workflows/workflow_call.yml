@@ -1,0 +1,6 @@
+on: workflow_call
+
+jobs:
+  test:
+    steps:
+    - run: echo github.event is ${{ github.event }}
