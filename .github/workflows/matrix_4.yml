@@ -1,3 +1,6 @@
+on: 
+  push: 
+    branches: [ master ]
 
 name: build
 jobs:
@@ -7,7 +10,7 @@ jobs:
     - id: set-matrix
       run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
-    depends: job1
+    needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(depends.job1.outputs.matrix)}}
