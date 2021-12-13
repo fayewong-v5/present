@@ -11,6 +11,12 @@ jobs:
   job2:
     needs: job1
     runs-on: ubuntu-latest
-    strategy: ${{fromJSON(needs.job1.steps.set-matrix.outputs.matrix)}}
+    steps:
+    - id: set-matrix
+      run: echo ${{needs.job1.outputs.matrix}}
+  job3:
+    needs: job2
+    runs-on: ubuntu-latest
+    strategy: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
     - run: echo "project is ${{ matrix.project }}, config is ${{ matrix.config }}"
