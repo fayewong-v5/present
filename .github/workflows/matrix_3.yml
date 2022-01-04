@@ -59,3 +59,4 @@ jobs:
     steps:
     - run: |
           echo ${{ needs.build.outputs }}
+          echo ${{ jobs.build.steps.working-directory }}
