@@ -53,3 +53,9 @@ jobs:
       - run: |
           echo "targetImageTag is ${{ steps.prepare.outputs.targetImageTag }}"
           echo "dockerFilePath is ${{ steps.prepare.outputs.dockerFilePath }}"
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - run: |
+          echo ${{ needs.build.outputs.targetImageTag }}
