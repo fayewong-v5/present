@@ -60,4 +60,3 @@ jobs:
     - run: |
           echo ${{ needs.build.outputs }}
           echo ${{ needs.build.outputs.targetImageTag }}
-          echo ${{ fromJson(needs.build.outputs) }}
