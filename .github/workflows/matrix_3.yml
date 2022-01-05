@@ -58,5 +58,5 @@ jobs:
     needs: build
     steps:
     - run: |
-          echo ${{ needs.build.outputs }}
+          echo ${{ toJson(needs.build.outputs) }}
           echo ${{ needs.build.outputs.targetImageTag }}
