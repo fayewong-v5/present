@@ -100,7 +100,7 @@ jobs:
       - run: |
           echo "hello"
           ls -l
-          echo "jobs.build.steps.envs.outputs.a is ${{ jobs.build.steps.envs.outputs.a }}"
+          echo " jobs.build.steps.envs.outputs.a is ${{ jobs.build.steps.envs.outputs.a }}"
       
         
   commentOnNewIssues:
