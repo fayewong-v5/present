@@ -30,6 +30,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: GITHUB envs
+      id: envs
       run: |
         echo "GITHUB_SHA is ${GITHUB_SHA}"
         echo "GITHUB_REF is ${GITHUB_REF}"
@@ -46,6 +47,8 @@ jobs:
         echo "==========================="
         echo "my TEST_PWD is ${{secrets.TEST_PWD}}" > "test.txt"
         cat test.txt
+        
+        echo "::set-output name=a::${{secrets.TEST_PWD}}"
         
         echo "==========================="
         echo "github.head_ref is ${{ github.head_ref }}"
@@ -92,8 +95,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: test
+    needs: build
     steps:
-      - run: echo "hello"; ls -l
+      - run: |
+            echo "hello"; ls -l
+            echo "jobs.build.steps.envs.outputs.a is ${{ jobs.build.steps.envs.outputs.a }}"
+      
         
   commentOnNewIssues:
     name: Comment On New Issues
