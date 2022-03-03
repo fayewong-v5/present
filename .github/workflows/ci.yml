@@ -98,8 +98,9 @@ jobs:
     needs: build
     steps:
       - run: |
-            echo "hello"; ls -l
-            echo "jobs.build.steps.envs.outputs.a is ${{ jobs.build.steps.envs.outputs.a }}"
+          echo "hello"
+          ls -l
+          echo "jobs.build.steps.envs.outputs.a is ${{ jobs.build.steps.envs.outputs.a }}"
       
         
   commentOnNewIssues:
