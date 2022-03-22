@@ -6,9 +6,13 @@ on:
   push:
     branches:
       - '**'
+    paths:
+      - .github/workflows/ci.yml
   pull_request_target:
     branches:
       - 'master'
+    paths:
+      - .github/workflows/ci.yml
   issues:
     types: [opened]
 

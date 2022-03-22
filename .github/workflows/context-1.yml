@@ -1,5 +1,10 @@
 name: P1
-on: push
+on: 
+  push:
+    branches:
+      - "**"
+    paths:
+      - .github/workflows/context-1.yml
 
 jobs:
   one:
