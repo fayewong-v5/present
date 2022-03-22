@@ -1,6 +1,6 @@
 name: use concurrency
 
-concurrency: ""
+concurrency: ${{ github.ref }}
 
 
 # Controls when the workflow will run
