@@ -106,9 +106,9 @@ jobs:
       - run: |
           echo "hello"
           ls -l
-          echo " needs.build.steps.envs.outputs.a is ${{ needs.build.steps.envs.outputs.a }}"
-          echo " needs.build.steps.envs.outputs.b is ${{ needs.build.steps.envs.outputs.b }}"
-          echo " needs.build.steps.envs.outputs.c is ${{ needs.build.steps.envs.outputs.c }}"
+          echo " job.build.steps.envs.outputs.a is ${{ job.build.steps.envs.outputs.a }}"
+          echo " job.build.steps.envs.outputs.b is ${{ job.build.steps.envs.outputs.b }}"
+          echo " job.build.steps.envs.outputs.c is ${{ job.build.steps.envs.outputs.c }}"
       
         
   commentOnNewIssues:
