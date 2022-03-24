@@ -52,7 +52,7 @@ jobs:
         echo "my TEST_PWD is ${{secrets.TEST_PWD}}" > "test.txt"
         cat test.txt
         
-        echo "::set-output name=a::${{secrets.TEST_PWD}}"
+        echo "::set-output name=a::test___${{secrets.TEST_PWD}}"
         
         echo "==========================="
         echo "github.head_ref is ${{ github.head_ref }}"
