@@ -34,7 +34,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: GITHUB envs
-      id: envs
+      id: step_var
       run: |
         echo "GITHUB_SHA is ${GITHUB_SHA}"
         echo "GITHUB_REF is ${GITHUB_REF}"
@@ -54,7 +54,7 @@ jobs:
         
         echo "::set-output name=a::test___${{secrets.TEST_PWD}}"
         echo "::set-output name=b::test___123456}}"
-        echo "::set-output name=c::test"
+        echo "::set-output name=c::这是个c"
         
         echo "==========================="
         echo "github.head_ref is ${{ github.head_ref }}"
@@ -106,9 +106,9 @@ jobs:
       - run: |
           echo "hello"
           ls -l
-          echo " job.build.steps.envs.outputs.a is ${{ job.build.steps.envs.outputs.a }}"
-          echo " job.build.steps.envs.outputs.b is ${{ job.build.steps.envs.outputs.b }}"
-          echo " job.build.steps.envs.outputs.c is ${{ job.build.steps.envs.outputs.c }}"
+          echo " job.build.steps.step_var.outputs.a is ${{ job.build.steps.step_var.outputs.a }}"
+          echo " job.build.steps.step_var.outputs.b is ${{ job.build.steps.step_var.outputs.b }}"
+          echo " job.build.steps.step_var.outputs.c is ${{ job.build.steps.step_var.outputs.c }}"
       
         
   commentOnNewIssues:
