@@ -22,4 +22,4 @@ jobs:
     steps:
     - run: |
           echo "hello concurrency_1.yml "
-          sleep 60s
+          sleep 120s
