@@ -114,9 +114,8 @@ jobs:
       - run: |
           echo "hello"
           ls -l
-          echo " job.build.outputs.a is ${{ job.build.outputs.a }}"
-          echo " job.build.outputs.b is ${{ job.build.outputs.b }}"
-          echo " job.build.outputs.c is ${{ job.build.outputs.c }}"
+          echo " needs.build.outputs.a is ${{ needs.build.outputs.a }}"
+          echo " needs.build.outputs.b is ${{ needs.build.outputs.b }}"
           echo " needs.build.outputs.c is ${{ needs.build.outputs.c }}"
           
           echo " needs.build.outputs.d is ${{ needs.build.outputs.d }}"
