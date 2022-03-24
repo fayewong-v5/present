@@ -16,4 +16,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "hello 10"
+    - run: echo "hello 100"
