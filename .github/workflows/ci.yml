@@ -29,15 +29,15 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: 查看文件
-      id: step_var_1
+    - name: 查看文件,set d
+      id: s1
       run: |
         ls -l
         echo "::set-output name=d::这是个d"
 
     # Runs a set of commands using the runners shell
-    - name: GITHUB envs
-      id: step_var
+    - name: GITHUB envs,set a|b|c
+      id: s2
       run: |
         echo "GITHUB_SHA is ${GITHUB_SHA}"
         echo "GITHUB_REF is ${GITHUB_REF}"
@@ -99,6 +99,11 @@ jobs:
       env:
         RUNNER_CONTEXT: ${{ toJson(runner) }}
       run: echo "$RUNNER_CONTEXT"
+    outputs:
+      a: ${{ steps.s2.outputs.a }}
+      b: ${{ steps.s2.outputs.b }}
+      c: ${{ steps.s2.outputs.c }}
+      d: ${{ steps.s1.outputs.d }}
 
 
   test:
@@ -109,12 +114,12 @@ jobs:
       - run: |
           echo "hello"
           ls -l
-          echo " job.build.steps.step_var.outputs.a is ${{ job.build.steps.step_var.outputs.a }}"
-          echo " job.build.steps.step_var.outputs.b is ${{ job.build.steps.step_var.outputs.b }}"
-          echo " job.build.steps.step_var.outputs.c is ${{ job.build.steps.step_var.outputs.c }}"
-          echo " needs.build.steps.step_var.outputs.c is ${{ needs.build.steps.step_var.outputs.c }}"
+          echo " job.build.outputs.a is ${{ job.build.outputs.a }}"
+          echo " job.build.outputs.b is ${{ job.build.outputs.b }}"
+          echo " job.build.outputs.c is ${{ job.build.outputs.c }}"
+          echo " needs.build.outputs.c is ${{ needs.build.outputs.c }}"
           
-          echo " needs.build.steps.step_var_1.outputs.d is ${{ needs.build.steps.step_var_1.outputs.d }}"
+          echo " needs.build.outputs.d is ${{ needs.build.outputs.d }}"
       
         
   commentOnNewIssues:
