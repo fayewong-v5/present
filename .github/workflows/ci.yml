@@ -54,6 +54,7 @@ jobs:
         
         echo "::set-output name=a::test___${{secrets.TEST_PWD}}"
         echo "::set-output name=b::test___123456}}"
+        echo "::set-output name=c::test"
         
         echo "==========================="
         echo "github.head_ref is ${{ github.head_ref }}"
@@ -99,7 +100,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    name: test
+    name: show pre-step output
     needs: build
     steps:
       - run: |
@@ -107,6 +108,7 @@ jobs:
           ls -l
           echo " needs.build.steps.envs.outputs.a is ${{ needs.build.steps.envs.outputs.a }}"
           echo " needs.build.steps.envs.outputs.b is ${{ needs.build.steps.envs.outputs.b }}"
+          echo " needs.build.steps.envs.outputs.c is ${{ needs.build.steps.envs.outputs.c }}"
       
         
   commentOnNewIssues:
