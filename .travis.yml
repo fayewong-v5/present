@@ -10,5 +10,5 @@ install:
 
 # Run tests
 script:
-  - echo "hello, travis"
+  - echo "hello, travis!"
   
