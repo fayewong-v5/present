@@ -1,0 +1,26 @@
+name: use command
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+    paths:
+      - .github/workflows/command.yml
+  pull_request:
+    branches: [ master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        content=$(ls -l ..)
+        echo "$content"
+        content="${content//'%'/'%25'}"
+        content="${content//$'\n'/'%0A'}"
+        content="${content//$'\r'/'%0D'}"
+        echo "::set-output name=content::$content"
+      id: prepare
+    - run: |
+        echo steps.prepare.outputs.content is ${{ steps.prepare.outputs.content }}
+    
