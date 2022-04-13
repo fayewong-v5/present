@@ -22,5 +22,5 @@ jobs:
         echo "::set-output name=content::$content"
       id: prepare
     - run: |
-        echo steps.prepare.outputs.content is ${{ steps.prepare.outputs.content }}
+        echo "steps.prepare.outputs.content is ${{ steps.prepare.outputs.content }}"
     
