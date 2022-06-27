@@ -16,6 +16,7 @@ jobs:
         run: |
             echo "$GITHUB_CONTEXT"
             echo ${{ github.aaaaa }}
+            
       - name: Dump job context1
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
