@@ -17,6 +17,7 @@ jobs:
             # echo "$GITHUB_CONTEXT"
             echo "111111111111"
             echo ${{ github.aaaaa }}
+            echo ${{ github['aaaaa'] }}
             echo "2222222222222"
             
       - name: Dump job context1
