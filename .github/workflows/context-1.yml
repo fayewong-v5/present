@@ -16,6 +16,10 @@ jobs:
         run: |
             # echo "$GITHUB_CONTEXT"
             echo "111111111111"
+
+            echo "github.head_ref is ${{ github.head_ref }}"
+            echo "github.base_ref is ${{ github.base_ref }}"
+
             echo ${{ github.aaaaa }}
             echo ${{ github['aaaaa'] }}
             echo "2222222222222"
