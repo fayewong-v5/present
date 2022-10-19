@@ -6,3 +6,6 @@ hello, it is 20200904.
 hello, it is release.
 111
 Require status checks to pass before merging
+
+
+![stream](https://ci.tencent.com/pipeline/stream/api/external/stream/projects/github_189153491/pipelines/badge?file_path=.ci/pr_check.yml&branch=master)
