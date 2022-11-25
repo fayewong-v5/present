@@ -131,4 +131,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: comment "Hello World1" number 1
+          args: comment "Hello World" number 1
