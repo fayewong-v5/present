@@ -22,6 +22,7 @@ jobs:
 
             echo "github.head_ref is ${{ github.head_ref }}"
             echo "github.base_ref is ${{ github.base_ref }}"
+            echo "111"
 
             echo ${{ github.aaaaa }}
             echo ${{ github['aaaaa'] }}
