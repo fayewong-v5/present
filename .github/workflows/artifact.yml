@@ -1,0 +1,18 @@
+on: 
+  push:
+    branches:
+      - "**"
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        run: |
+            # echo "$GITHUB_CONTEXT"
+            echo 123456678 > test.txt
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: test.txt
